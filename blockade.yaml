@@ -1,0 +1,30 @@
+containers:
+  c1:
+    image: kvstore
+    command: "-config /config/config.toml"
+    volumes: {"nodes/c1/config":"/config","nodes/c1/data":"/data"}
+    expose: [26656, 26657]
+    ports: {26656: 26656, 26657: 26657}
+    environment: {"DEV": 1}
+  c2:
+    image: kvstore
+    command: "-config /config/config.toml"
+    volumes: {"nodes/c2/config":"/config","nodes/c2/data":"/data"}
+    expose: [26656, 26657]
+    ports: {26756: 26656, 26757: 26657}
+    links: ["c1"]
+  c3:
+    image: kvstore
+    command: "-config /config/config.toml"
+    volumes: {"nodes/c3/config":"/config","nodes/c3/data":"/data"}
+    expose: [26656, 26657]
+    ports: {26856: 26656, 26857: 26657}
+    links: ["c1", "c2"]
+  c4:
+    image: kvstore
+    command: "-config /config/config.toml"
+    volumes: {"nodes/c4/config":"/config","nodes/c4/data":"/data"}
+    expose: [26656, 26657]
+    ports: {26956: 26656, 26957: 26657}
+    links: ["c1", "c2", "c3"]
+
