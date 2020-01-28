@@ -32,7 +32,7 @@ fast_sync = true
 #   - EXPERIMENTAL
 #   - may be faster is some use-cases (random reads - indexer)
 #   - use boltdb build tag (go build -tags boltdb)
-db_backend = "goleveldb"
+db_backend = "cleveldb"
 
 # Database directory
 db_dir = "data"
@@ -240,7 +240,7 @@ size = 50000
 max_txs_bytes = 1073741824
 
 # Size of the cache (used to filter transactions we saw earlier) in transactions
-cache_size = 100000
+cache_size = 1000000
 
 # Maximum size of a single transaction.
 # NOTE: the max size of a tx transmitted over the network is {max_tx_bytes} + {amino overhead}.
