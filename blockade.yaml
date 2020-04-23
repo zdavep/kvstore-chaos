@@ -5,7 +5,7 @@ containers:
     volumes: {"nodes/c1/config":"/config","nodes/c1/data":"/data"}
     expose: [26656, 26657, 6060]
     ports: {26656: 26656, 26657: 26657, 6060: 6060}
-    environment: {"DEV": 1, "PPROF": 1}
+    environment: {"DEV": 1}
   c2:
     image: kvstore
     command: "-config /config/config.toml"
